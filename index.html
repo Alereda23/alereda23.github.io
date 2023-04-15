@@ -1,105 +1,735 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
-        <meta charset="utf-8">
-        <title>Spin-off di "Progetto: Sito sui viaggi completo" fatto da Redaelli Alessio</title>
+        <meta charset="UTF-8">
+        <title>Home | CRLP 2023</title>
+        <link rel="shortcut icon" type="image/x-icon" href="https://static.wixstatic.com/media/76bff0_af8e3096e5334f7a99f820ea88b3d613~mv2.png/v1/fill/w_220,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/CRLP%20logo%20esteso%20color.png">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         
         <style>
-            .nel_mondo {
-                color: green;
-            }
-            .menu {
-                background-color: green;
-                color: white;
-            }
-            #agriturismo {
-                background-color: rgb(84, 12, 12);
-                color: white;
-            }
+        body {
+  background-color: white;
+  position: relative;
+  margin: 0px;
+  font-size: 150%;
+  color: white;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  z-index: 3;
+  top: 0px;
+  width: 100%;
+  background-color: transparent;
+  font-size: 12px;
+}
+
+.logo {
+  position: relative;
+  top: 5px;
+  left: 5px;
+  width: 150px;
+}
+
+h1 {
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  width: 100%;
+  text-align: center;
+  font-family: serif;
+  font-size: 400%;
+  color: white;
+  text-shadow: 3px 2px 2px black;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.image-container {
+position: relative;
+top: 0px;  
+width: 100%;
+align-items: center;
+justify-content: center;
+z-index: 1;
+}
+
+.image-container img {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+width: 100%;
+object-fit: contain;
+opacity: 0;
+}
+
+.falsaimmagine{
+position: relative;
+top: 0;
+z-index: 0;
+width: 100%;
+background-color: white;
+mix-blend-mode: screen;
+}
+
+
+/* The side navigation menu */
+.sidenav {
+height: 100%; /* 100% Full-height */
+width: 0; /* 0 width - change this with JavaScript */
+position: fixed; /* Stay in place */
+z-index: 1; /* Stay on top */
+top: 0; /* Stay at the top */
+right: 0;
+background-color: #111; /* Black*/
+overflow-x: hidden; /* Disable horizontal scroll */
+padding-top: 60px; /* Place content 60px from the top */
+transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+padding: 24px 8px 24px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+
+.menu-icon {
+display: inline-block;
+width: 67px;
+position: absolute;
+right: 20px;
+top: 20px;
+}
+.menu-icon span {
+display: block;
+position: absolute;
+height: 13px;
+width: 100%;
+background: white;
+border: 1px solid black;
+border-radius: 9px;
+opacity: 1;
+left: 0;
+transform: rotate(0deg);
+transition: .25s ease-in-out;
+}
+.menu-icon span:nth-child(1) {
+top: 0px;
+}
+.menu-icon span:nth-child(2), .menu-icon span:nth-child(3) {
+top: 19.49px;
+}
+.menu-icon span:nth-child(3) {
+top: 39px;
+}
+.menu-icon.open span:nth-child(1) {
+top: 8px;
+width: 0%;
+left: 50%;
+}
+.menu-icon.open span:nth-child(2) {
+transform: rotate(45deg);
+}
+.menu-icon.open span:nth-child(3) {
+transform: rotate(-45deg);
+}
+
+
+/* Menu */
+
+/* Stile per il menu posizionato a destra */
+#menu1 {
+right: 0px;
+}
+#menu2 {
+right: 35px;
+}
+#menu3 {
+right: 231px;
+}
+#menu4 {
+right: 314px;
+}
+#menu5 {
+right: 437px;
+}
+#menu6 {
+right: 687px;
+}
+#menu7 {
+right: 861px;
+}
+#menu8{
+right: 970px;
+}
+#menu9{
+right: 1082px;
+}
+
+/* Stile per il menu */
+.menu {
+  position: absolute;
+  top: 10px;
+  display: inline-block;
+  color: #000;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Stile per gli elementi del menu */
+.menu ul {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: none;
+  top: 100%;
+  left: 50%; /* Sposta il menu a metà della larghezza del menu principale */
+  transform: translateX(-50%); /* Centra il menu rispetto allo span */
+  z-index: 999;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.menu ul li {
+  width: 150px; /* Imposta la larghezza dei li a 190px */
+  padding: 10px 20px ;
+  text-align: center;
+  cursor: pointer;
+}
+.menu ul li:hover {
+  background-color: #f0f0f0;
+}
+/* Stile per gli elementi del menu quando ci si passa sopra con il mouse */
+.menu:hover ul {
+  display: block;
+}
+.menu:hover {
+  background-color: #e0e0e0;
+}
+
+.bandieraitalia {
+  position: relative;
+  display: flex;
+  top: 12px;
+  height: 5px;
+  border: 1px solid black;
+}
+.verde {
+  background-color: rgb(0, 146, 70);
+  width: 33.333%;
+  height: 5px;
+}
+.bianco {
+  background-color: rgb(255, 255, 255);
+  width: 33.333%;
+  height: 5px;
+}
+.rosso {
+  background-color: rgb(206, 43, 55);
+  width: 33.333%;
+  height: 5px;
+}
+
+.rowtogrow {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  align-items: center;
+  background-color:rgb(41, 69, 102);
+  text-shadow: 2px 1px 1px black;
+}
+
+.rowing{
+  position: relative;
+  height: 50%;
+}
+.testorowing {
+  position: relative;
+  width: 64%;
+  height: 370px;
+  float: left;
+  background-color: rgb(41, 69, 102);
+  padding-left: 5px;
+  text-shadow: 2px 1px 1px black;
+  border-top: 6px solid white;
+}
+.row {
+  position: relative;
+  float: right;
+  height: 370px;
+  width: 35.6%;
+  border-top: 6px solid white;
+}
+
+.vai {
+  position: relative;
+  text-align: center;
+  left: 20px;
+  right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+.clubhouse {
+  position: relative;
+  height: 50%;
+}
+.testoclubhouse {
+  position: relative;
+  float: right;
+  padding-left: 5px;
+  background-color: rgb(41, 69, 102);
+  text-shadow: 2px 1px 1px black;
+  width: 64%;
+  height: 370px;
+  border-top: 6px solid white;
+}
+.house {
+  position: relative;
+  float: left;
+  height: 370px;
+  width: 35.6%;
+  border-top: 6px solid white;
+}
+
+footer{
+  background-color: darkslategrey;
+  position: relative;
+  top: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+.fondo{
+  position: relative;
+  text-align: center;
+}
+#scritteinfondo{
+  margin-left: 50px;
+}
+.facebook {
+  height: 30px;
+}
+#asd{
+  position: relative;
+  text-align: center;
+  margin-left: 50px;
+}
+#como{
+  text-align: right;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 1349px) {
+
+ .menutotale {
+    display: none;
+  }
+
+  .row {
+    width: 35.4%;
+  }
+
+  .house {
+    width: 35.4%;
+  }
+
+}
+
+@media screen and (min-width: 1350px) {
+
+  .menu-icon {
+    display: none;
+  }
+
+  .mySidenav {
+    display:none;
+  }
+  
+  .sidenav {
+    display: none;
+  }
+}
         </style>
-            
+        
+        <script>
+        window.onload = function() {
+  var imageContainer = document.getElementById("image-container");
+  var images = [
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg",
+    "image4.jpg",
+    "image5.jpg"
+  ];
+  var currentImageIndex = 0;
+  var currentImage = document.getElementById("image" + (currentImageIndex + 1));
+  var nextImageIndex = 1;
+  var nextImage = document.getElementById("image" + (nextImageIndex + 1));
+  var animationDuration = 4000;
+
+  function fadeOut(image, duration, callback) {
+    var opacity = 1;
+    var interval = setInterval(function() {
+      opacity -= 1 / duration * 10;
+      if (opacity < 0) {
+        opacity = 0;
+        clearInterval(interval);
+        if (callback) {
+          callback();
+        }
+      }
+      image.style.opacity = opacity;
+    }, 10);
+  }
+
+  function fadeIn(image, duration, callback) {
+    var opacity = 0;
+    var interval = setInterval(function() {
+      opacity += 1 / duration * 10;
+      if (opacity > 1) {
+        opacity = 1;
+        clearInterval(interval);
+        if (callback) {
+          callback();
+        }
+      }
+      image.style.opacity = opacity;
+    }, 10);
+  }
+
+  function transitionImages() {
+    fadeOut(currentImage, animationDuration / 2, function() {
+      currentImage.style.display = "none";
+      nextImage.style.display = "block";
+      nextImage.style.opacity = 0;
+      fadeIn(nextImage, animationDuration / 2, function() {
+        currentImageIndex = nextImageIndex;
+        nextImageIndex = (nextImageIndex + 1) % images.length;
+        currentImage = document.getElementById("image" + (currentImageIndex + 1));
+        nextImage = document.getElementById("image" + (nextImageIndex + 1));
+        setTimeout(transitionImages, 4000);
+      });
+    });
+  }
+
+  currentImage.style.display = "block";
+  currentImage.style.opacity = 1;
+  setTimeout(transitionImages, 2500);
+}
+
+function fadeOut(element, duration, callback) {
+  var opacity = 1;
+  var interval = setInterval(function() {
+      opacity -= 1 / duration * 10;
+      if (opacity < 0) {
+          opacity = 0;
+          clearInterval(interval);
+          if (callback) {
+              callback();
+          }
+      }
+      element.style.opacity = opacity;
+  }, 10);
+}
+
+function fadeIn(element, duration, callback) {
+  var opacity = 0;
+  var interval = setInterval(function() {
+      opacity += 1 / duration * 10;
+      if (opacity > 1) {
+          opacity = 1;
+          clearInterval(interval);
+          if (callback) {
+              callback();
+          }
+      }
+      element.style.opacity = opacity;
+  }, 10);
+}
+
+
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "70%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+        </script>
     </head>
-    
     <body>
-    
-        <h1>Avventure</h1> <h1 class="nel_mondo">nel mondo</h1>
-        <a href="https://www.viaggiavventurenelmondo.it/info/chi-siamo" class="menu">CHI SIAMO</a> <a href="https://www.viaggiavventurenelmondo.it/info/decalogo" class="menu">IL DECALOGO</a> <a class="menu">I VIAGGI</a> <a href="https://www.viaggiavventurenelmondo.it/nuovosito/rivista/IndexWeb_Riv.html" class="menu">LA RIVISTA</a> <a href="https://www.viaggiavventurenelmondo.it/prenotazioni/viag-info-enter2013XBNL_1_2.php" class="menu">AREA PRENOTATI</a>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Sass_de_mura_PNDB.jpg">
-        <p id="agriturismo">In agriturismo alla scoperta delle valli dolomitiche combinando escursioni, attività sportive e attrazioni per bambini, ragazzi e adulti.</p>
-        <h3>FAMILY</h3>
-        I viaggi della linea Family nascono per aggregare gruppi famigliari di genitori con figli coetanei che vogliono partire alla scoperta del mondo in compagnia. Per i figli di qualsiasi età, condividere l’emozione dei primi viaggi con coetanei vuol dire vivere un’esperienza ancora più indimenticabile e stimolante, e al contempo più piacevole ed aggregante anche per i genitori! 
-Un’occasione di aggregazione unica, tra diversi nuclei famigliari, accomunati dalla passione per il viaggio e che insieme partono alla scoperta del 5 continenti!
-Per i viaggi Family con bambini al di sotto dei 5 anni, occorre qualche precauzione in più e una attenzione particolare al programma di viaggio che sarà opportunamente adattato alle esigenze dei bambini.
-        <ul>
-            <li><strong>DURATA</strong><br>
-            8 giorni</li><br>
-            <li><strong>PERIODO</strong><br>
-            Giu Lug Ago Set</li><br>
-            <li><strong>PERNOTTAMENTI</strong><br>
-            agriturismo, b&b, residence</li><br>
-            <li><strong>TRASPORTI</strong><br>
-            pulmino a nolo, i partecipanti si alternano alla guida</li><br>
-            <li><strong>PASTI</strong><br>
-            in agiturismo e al sacco</li><br>
-            <li><strong>DIFFICOLTÀ</strong><br>
-            in base all'età dei partecipanti, da facili passeggiate in bici a piedi in salita</li><br>
-            <li><strong>INFORMAZIONI</strong><br>
-            I coordinatori segnalati hanno effettuato il viaggio e possono dare informazioni. Rivolgetevi a loro con la cortesia che si usa tra amici:<br>
-            Alessandro FORZONI - Tel. 3484404735<br>
-            Laura AGOSTINI - Tel. 3485115069<br>
-            Carlo BIAGIONI - Tel. 3356195005</li>
-        </ul>
-        <h3 class="menu">QUOTA DI PARTECIPAZIONE</h3>
-        <strong>Quota base</strong> 405 €<br>
-        Da Val Badia *PROVVISORIA*
-        <p>NB: Le prenotazioni effettuate entro <strong>10 giorni dalla data di partenza</strong> potrebbero subire una maggiorazione rispetto alla quota pubblicata che verrà notificata al momento dell'iscrizione. Nel caso in cui la maggiorazione non venga accettata sarà possibile annullare la prenotazione senza alcuna penale.</p>
-        <strong>La quota comprende</strong>
-        <p>trasporto in minibus/auto per 6 giorni da Verona escluso carburante, la polizza infortuni e l’assistenza Europassistance (prendere visione delle condizioni delle due polizze).</p>
-        <strong>La quota non comprende</strong>
-        <p>tutto ciò che non è compreso ne LA QUOTA COMPRENDE</p>
-        NB: Le quote hanno un valore indicativo e saranno confermate nel foglio notizie di ogni partenza.
-        <h3 class="menu">CASSA COMUNE</h3>
-        <strong>Cassa comune</strong> 600 €
-        <p>La Cassa Comune è l'importo di spesa previsto per persona in corso di viaggio per i servizi non compresi nella quota di partecipazione. Si basa sulle esperienze dei gruppi precedenti considerando un livello di servizi medio ed è gestito dal gruppo che elegge un cassiere. Consulta <strong class="nel_mondo">le FAQ</strong> ed il <strong class="nel_mondo">punto 5 del Decalogo</strong> per una spiegazione dettagliata sulla gestione della Cassa Comune.</p>
-        <h3 class="menu">PARTENZE PROGRAMMATE</h3>
-        NESSUNA PARTENZA PROGRAMMATA
-        <h3 class="menu">ITINERARIO E REDAZIONALE</h3>
-        <p>Una settimana all'insegna della natura, dello sport, del divertimento e sopratutto della libertà. Una volta scelta la base presso un agriturismo, una malga, un piccolo hotel o un residence organizzeremo le giornate scegliendo tra le numerose opzioni che le dolomiti offrono: ovviamente escursioni a piedi in montagna, ma anche passeggiate in bicicletta o ebike, parchi avventura, gite in canoa su laghi cristallini.....la difficoltà del programma sarà adattata in base all'età dei ragazzi e potremo scegliere ad esempio tra una facile passeggiata di fondo valle ed un escursione pià impegnativa in un tratto delle alte vie dolomitiche, tra una passeggiata in bicicletta sulla ciclabile della drava e le piste in quota con mountain bike elettriche, senza dimenticare il puro divertimento dei percorsi su corde dei parchi avventura o l'adrenalina di una discesa col bob su rotaia. In tutto ciò le protagoniste di ogni istante saranno le dolomiti, le montagne più belle del mondo, con i loro tramonti di fuoco e i profumi di alpeggio......</p>
-        Quello che segue è solo una delle tante ipotesi di itinerario misurata su un gruppo di adolescenti, l'itinerario del viaggio verrà concordato col coordinatore sulla base delle esigenze del gruppo:
-        <h3>ITINERARIO DI VIAGGIO</h3>
-        <h4 class="nel_mondo">GIORNO 1</h4>
-        Arrivo e sistemazione presso l'agriturismo, idealmente in Val Badia o bassa Val Pusteria
-        <h4 class="nel_mondo">GIORNO 2</h4>
-        Ci spostiamo col pulmino a Corvara dove noleggiamo le mnountain bike elettriche e saliamo sull'altopiano del Pralongià, caratterizzato da dolci saliscendi su verdissimi prati e circondato da un panorama incredibile su tutti i lati: Marmolada, Piz Boè, Sassongher, Cunturines e Lagazuoi. Ci sarà solo l'imbarazzo della scelta tra i numerosi sentieri da imboccare.
-        <h4 class="nel_mondo">GIORNO 3</h4>
-        Escursione Lagazuoi. Col pulmino raggiungiamo il passo Falzarego e da qui il rifugio Lagazuoi in una posizione spettacolare davanti ad uno degli scenari più belli delle dolomiti, famoso anche per essere stato uno dei fronti più duri della prima guerra mondiale, dove italiani e austriaci si inconrrevano a scavare tunnel nella roccia per conquistare le postazioni di tiro migliori. Il gruppo potrà decidere se salire al rifugio con la funivia o a piedi lungo uno dei numerosi ed impegnativi percorsi che risalgono la montagna attraversando anche le gallerie della grande guerra. La discesa verso Armentarola è altrettanto spettacolare, si passa dall'alta montagna ai verdi pascoli del rifugio scotoni in un percorso dove risuonano ancora i canti degli alpini.
-        <h4 class="nel_mondo">GIORNO 4</h4>
-        Giornata di relax per riposare un po' le gambe, col pulmino visitiamo la val di casies, chiamata anche la valle delle fragole, un ambiente bucolico che sembra fermo ai secoli passati dove sarà possibile assaggiare le fragole più buone che abbiamo mai provato, e una miriade di prodotti a base di fragola, dallo yoghurt alla birra! Nel pomeriggo potremo scegliere se salire in quota sul Kalusberg, dove ci aspettano delle adrenaliniche discese in bob su rotaia, oppure se fermarci prima all'incantevole lago di Issengo, dove c'è un divertente parco avventura con percorsi su corda e lo stabilimento di erbe di Bergilia. Nel lago è anche possibile fare il bagno.
-        <h4 class="nel_mondo">GIORNO 5</h4>
-        Si torna in montagna. Oggi, superato il passo gardena col pulmino ci addentriamo per uno dei percorsi spettacolari all'interno del parco del Puez Odle, dal rifugio Gardena lungo un percorso in quota attraversiamo tutto il parco per poi scendere ad Ortisei e raggiungere di nuovo il passo in autobus. In alternativa possiamo scegliere il giro del Sasso Lungo o uno degli altri percorsi intorno al gruppo del Sella.
-        <h4 class="nel_mondo">GIORNO 6</h4>
-        Di nuovo in sella per il bellissimo percorso della lunga via delle dolomiti: un percorso quasi tutto pianeggiante o in discesa che segue in parte l'antico tracciato di una ferrovia. Si parte da Dobbiaco, dove noleggiamo le biciclette e attraversando il passo Cimabanche raggiungiamo Cortina, quindi lungo il Cadore fino a Calalzo dove lasciamo le biciclette e prendiamo il bus per rientrare a Dobbiaco.
-        <h4 class="nel_mondo">GIORNO 7</h4>
-        Ultima giornata dedicata al relax, magari in giro per le pasticcerie ladine, o per un tuffo sul lago di Dobbiaco, o in cerca di paesaggi alpini tra i laghi di Misurina e Braies (se riusciamo a ottenere il diritto di accesso, ora contingentato). O magari scegliamo di fare un giro in auto tra le bellissime strade dolomitiche per raggiungere località più lontane.
-        <h4 class="nel_mondo">GIORNO 8</h4>
-        Rientro nelle località di provenienza
-        <h6>NB: La sezione "Itinerario e Redazionale" costituisce un racconto-relazione di una precedente esperienza di viaggio scritta e aggiornata dai partecipanti e dai coordinatori. Costituisce lo schema del programma di viaggio suscettibile di modifiche sulla base delle decisioni dei gruppi nello spirito dell'autogestione del viaggio, caratteristica della formula dei viaggi proposti da Avventure nel Mondo.
-</h6>
-        <h3 class="menu">MATERIALE DI VIAGGIO</h3>
-        <ul>
-        <li><a href="http://www.libreriaangoloavventurenelmondo.it/prenotazionelibri.php?id_libro=1542297">CORTINA D'AMPEZZO E DOLOMITI VENETE</a></li><br>
-        <li><a href="http://www.libreriaangoloavventurenelmondo.it/prenotazionelibri.php?id_libro=971352">35 BORGHI IMPERDIBILI DOLOMITI</a></li><br>
-        <li><a href="http://www.libreriaangoloavventurenelmondo.it/prenotazionelibri.php?id_libro=896651">DOLOMITI INSIEME ESCURSIONI PER TUTTI TRA BOSCHI E VETTE NEI DINTORNI DI CORTINA D'AMPEZZO</a></li>
-        </ul>
-        <h3 class="menu">APPROFONDIMENTI E SOCIAL</h3>
-        Trova altri viaggiatori come te e condividi questo viaggio con i tuoi amici:
-        <ul>
-            <li><a href="https://www.facebook.com/groups/331968246905704/">GRUPPO ITALIA, NORD ITALIA</a></li><br>
-            <li><a href="https://www.facebook.com/groups/avventurefamily/">GRUPPO FAMILY</a></li><br>
-            <li>INVIA AD UN AMICO</li><br>
-            <li><a href="http://www.libreriaangoloavventurenelmondo.it/">LIBRERIA L'ANGOLO DELL'AVVENTURA</a></li>
-            Entra nella nostra libreria specializzata in viaggi e cultura del viaggio.
-        </ul>
+        <header>
+
+            <img src="https://static.wixstatic.com/media/76bff0_af8e3096e5334f7a99f820ea88b3d613~mv2.png/v1/fill/w_220,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/CRLP%20logo%20esteso%20color.png" alt="" class="logo">
+            
+            <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">Home</a>
+  <a href="#">ROWING WINTER CHALLENGE</a>
+  <a href="#">REGATE</a>
+  <a href="#">CANOTTAGGIO</a>
+  <a href="#">CENTRO ESTIVO - Il CENTRO dell'ESTATE</a>
+  <a href="#">BOATHOUSE - Hangar barche</a>
+  <a href="#">FORESTERIA</a>
+  <a href="#">CLUB HOUSE</a>
+  <a href="#">CHI SIAMO</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()">
+    <div class="menu-icon">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</span>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main"></div>
+
+            <div class="menutotale">
+
+            <a href="index.html">
+                <div class="menu" class="menu-right" id="menu1">
+                    <i class="fas fa-home" style="color: black" ></i>
+                </div>
+            </a>
+
+            <div class="menu" class="menu-right" id="menu2">
+                <span id="rwc">ROWING WINTER CHALLENGE</span>
+            </div>
+
+            <div class="menu" class="menu-right" id="menu3">
+                <span id="regate">REGATE &#9660;</span>
+                <ul>
+                  <li>Regate Nazionali</li>
+                  <li>Regate Regionali</li>
+                </ul>
+            </div>
+
+            <div class="menu" class="menu-right" id="menu4">
+                <span id="canottaggio">CANOTTAGGIO &#9660;</span>
+                <ul>
+                  <li>SEZIONI</li>
+                  <li>ATTIVITA' CON LE SCUOLE</li>
+                  <li>CORSI CANOTTAGGIO</li>
+                </ul>
+            </div>
+
+            <div class="menu" class="menu-right" id="menu5">
+                <span id="board">CENTRO ESTIVO - Il CENTRO dell'ESTATE</span>
+            </div>
+
+            <div class="menu" class="menu-right" id="menu6">
+                <span id="club">BOATHOUSE - Hangar barche</span>
+            </div>
+
+            <div class="menu" class="menu-right" id="menu7">
+                <span id="club">FORESTERIA &#9660;</span>
+                <ul>
+                  <li>Centro Remiero</li>
+                  <li>Pusiano - Palazzo Beauharnais</li>
+                </ul>
+            </div>
+            
+            <div class="menu" class="menu-right" id="menu8">
+                <span id="club">CLUB HOUSE &#9660;</span>
+                <ul>
+                  <li>ZONA RELAX</li>
+                  <li>PALESTRE</li>
+                  <li>AULA DIDATTICA</li>
+                  <li>INFERMERIA</li>
+                </ul>
+                </div>
+
+                <div class="menu" class="menu-right" id="menu9">
+                    <span id="club">CHI SIAMO &#9660;</span>
+                    <ul>
+                      <li>STORIA</li>
+                      <li>IL CONSIGLIO</li>
+                      <li>I SOCI</li>
+                      <li>CONTATTI</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </header>
+        
+        <div class="image-container">
+            <img id="image1" src="https://riccisportivi.altervista.org/wordpress/wp-content/uploads/2021/03/WhatsApp-Image-2021-03-02-at-12.26.11.jpg">
+            <img id="image2" src="https://www.avventurosamente.it/xf/attachments/107756/">
+            <img id="image3" src="https://live.staticflickr.com/4063/4679430097_c6989a2f26_c.jpg">
+            <img id="image4" src="https://riccisportivi.altervista.org/wordpress/wp-content/uploads/2021/03/WhatsApp-Image-2021-03-02-at-12.26.11-1.jpg">
+            <img id="image5" src="https://www.equotube.it/7454-tm_thickbox_default/tour-in-canoa-e-aperitivo-lago-di-pusiano.jpg">
+            
+        </div>
+
+        <img class="falsaimmagine" src="https://www.avventurosamente.it/xf/attachments/107756/">
+
+        <h1>
+            CENTRO REMIERO<br>
+            LAGO DI PUSIANO
+        </h1>
+        
+        <div class="bandieraitalia">
+            <div class="verde"></div>
+            <div class="bianco"></div>
+            <div class="rosso"></div>
+        </div>
+
+        <div class="rowtogrow">
+            <h2>ROW TO GROW (Rema per crescere)</h2>
+        </div>
+
+        <div class="rowing">
+            <div class="testorowing">
+                <h2>ROWING WINTER CHALLENGE</h2>
+                <p>Scopri il Rowing Winter Challenge, l'evento più importante dell'anno, che si svolge nel quarto weekend di Gennaio. Clicca qui per visitare la nostra pagina dedicata a questa gara.</p><br>
+                <a href="#" class="vai">Vai</a>
+            </div>
+            <a href="https://www.canottaggio.org/speciale/rowing-winter-challenge-2023/"><img src="https://static.wixstatic.com/media/76bff0_b3fd96ac56a940ea91501d433778bc57~mv2.jpg/v1/fill/w_480,h_370,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/logo%20rowing%20winter%20challenge%20no%20letters.jpg" class="row"></a>
+        </div>
+
+        <div class="clubhouse">
+            <div class="testoclubhouse">
+                <h2>Club House</h2>
+                <p>La Club House è stata creata per dare il maggior confort ai nostri ospiti:
+​                    <ul>
+                        <li>Reception</li>
+                        <li>Lobby Bar con WIFI Smart TV - Netflix</li>
+                        <li>More...</li>
+                    </ul>
+                </p><br>
+                <a href="#" class="vai">Vai</a>
+            </div>
+            <img src="Foto/Club House (home page).webp" class="house">
+        </div>
+        
+        <div class="george">
+            <div class="testorowing">
+                <h2>George Yeoman Pocock</h2>
+                <p><i>E' un'arte grandiosa, il canottagio. E' l'arte più eccelsa che esista. E' una sinfonia di movimento. Quando voghi bene, rasenta la perfezione e quando rasenti la perfezione è come sfiorare il divino. Sfiora la parte più vera di te, che è la tua anima.</i></p>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIjGZcA85snOczW-FhXgjaOj68a9pdhxLNUQ&usqp=CAU" class="row">
+        </div>
+
+        <div class="clubhouse">
+            <div class="testoclubhouse">
+                <h2>Dove siamo?</h2>
+                <p>Indirizzo: Via Provinciale, 26, 22030 Eupilio CO<br>
+                    Telefono: 031 656441<br>
+                    Provincia: Provincia di Como</p><br>
+                <a href="https://www.google.com/maps/place/Centro+Remiero+Lago+di+Pusiano/@45.8061548,9.2561779,15z/data=!4m6!3m5!1s0x4786a0f091d70cfb:0x93388767b6be0d4a!8m2!3d45.8061548!4d9.2561779!16s%2Fg%2F11b7y7z1zj" class="vai" target="_blank">Vai su Google Maps</a>
+            </div>
+            <img src="Foto/Mappa (home page).jpg" class="house">
+        </div>
+
+        <footer>
+            <a href="https://www.lariofiere.it/">
+                <img src="https://static.wixstatic.com/media/76bff0_08f945b0aa9c478e9da7ea6a86da7e27~mv2.png/v1/fill/w_160,h_47,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logo-LARIOFIERE-COMO-LECCO-Blu.png">
+            </a>
+            <div id="scritteinfondo">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Sede: Via Provinciale n. 26</td>
+                    </tr>
+                    <tr>
+                        <td>22030 -  Eupilio (CO)</td>
+                    </tr>
+                    <tr>
+                        <td>Cod. Fisc e P.Iva 03535530137</td>
+                    </tr>
+                    <tr>
+                        <td>info@centroremierolagodipusiano.it</td>
+                    </tr>
+                    <tr>
+                        <td>centroremierolagopusiano@pec.it</td>
+                    </tr>
+                    <tr>
+                        <td>Codice Univoco BA6ET11</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div id="asd">Centro Remiero Lago di Pusiano asd<br><br>
+                <a href="https://www.facebook.com/crlp2019/">
+                    <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_31,h_31,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e316f544f9094143b9eac01f1f19e697.png" class="facebook">
+                </a>
+                <a href="https://www.instagram.com/crlp.canottaggio/?hl=it">
+                    <img src="https://play-lh.googleusercontent.com/VRMWkE5p3CkWhJs6nv-9ZsLAs1QOg5ob1_3qg-rckwYW7yp1fMrYZqnEFpk0IoVP4LM" class="facebook">
+                </a>
+            </div>
+            <div id="como">
+            <img src="https://static.wixstatic.com/media/76bff0_88bae5db62274ecba49a6dd6357a1667~mv2.jpg/v1/fill/w_106,h_42,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Logo%20Lago%20di%20Como.jpg"><br>
+            CSI - Como n.  02200 453<br>
+            Registro CONI  n. 244.984
+            </div>
+            <a href="https://www.autoritabacinolario.it/">
+                <img src="https://static.wixstatic.com/media/76bff0_3781f10d19f642e09d050dee23c56790~mv2.jpg/v1/fill/w_94,h_80,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Brivio%20Colore%20x%20sito.jpg">
+            </a>
+        </footer>
 
     </body>
 </html>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
